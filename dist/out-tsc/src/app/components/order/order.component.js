@@ -95,7 +95,7 @@ var OrderComponent = (function () {
         this.billingAddress.billingAddressZipcode = userPayment.userBilling.userBillingZipcode;
     };
     OrderComponent.prototype.setBillingAsShipping = function (checked) {
-        console.log("same as shipping");
+        console.log('same as shipping');
         if (checked) {
             this.billingAddress.billingAddressName = this.shippingAddress.shippingAddressName;
             this.billingAddress.billingAddressStreet1 = this.shippingAddress.shippingAddressStreet1;
@@ -106,13 +106,13 @@ var OrderComponent = (function () {
             this.billingAddress.billingAddressZipcode = this.shippingAddress.shippingAddressZipcode;
         }
         else {
-            this.billingAddress.billingAddressName = "";
-            this.billingAddress.billingAddressStreet1 = "";
-            this.billingAddress.billingAddressStreet2 = "";
-            this.billingAddress.billingAddressCity = "";
-            this.billingAddress.billingAddressState = "";
-            this.billingAddress.billingAddressCountry = "";
-            this.billingAddress.billingAddressZipcode = "";
+            this.billingAddress.billingAddressName = '';
+            this.billingAddress.billingAddressStreet1 = '';
+            this.billingAddress.billingAddressStreet2 = '';
+            this.billingAddress.billingAddressCity = '';
+            this.billingAddress.billingAddressState = '';
+            this.billingAddress.billingAddressCountry = '';
+            this.billingAddress.billingAddressZipcode = '';
         }
     };
     OrderComponent.prototype.onSubmit = function () {
@@ -122,7 +122,7 @@ var OrderComponent = (function () {
             console.log(_this.order);
             var navigationExtras = {
                 queryParams: {
-                    "order": JSON.stringify(_this.order)
+                    'order': JSON.stringify(_this.order)
                 }
             };
             _this.router.navigate(['/orderSummary'], navigationExtras);
@@ -175,12 +175,12 @@ var OrderComponent = (function () {
         for (var s in app_const_1.AppConst.usStates) {
             this.stateList.push(s);
         }
-        this.payment.type = "";
-        this.payment.expiryMonth = "";
-        this.payment.expiryYear = "";
-        this.billingAddress.billingAddressState = "";
-        this.shippingAddress.shippingAddressState = "";
-        this.shippingMethod = "groundShipping";
+        this.payment.type = '';
+        this.payment.expiryMonth = '';
+        this.payment.expiryYear = '';
+        this.billingAddress.billingAddressState = '';
+        this.shippingAddress.shippingAddressState = '';
+        this.shippingMethod = 'groundShipping';
     };
     return OrderComponent;
 }());

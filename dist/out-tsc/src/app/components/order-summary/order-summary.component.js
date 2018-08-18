@@ -28,13 +28,13 @@ var OrderSummaryComponent = (function () {
         this.route.queryParams.subscribe(function (params) {
             _this.order = JSON.parse(params['order']);
             var deliveryDate = new Date();
-            if (_this.order.shippingMethod == "groundShipping") {
+            if (_this.order.shippingMethod == 'groundShipping') {
                 deliveryDate.setDate(deliveryDate.getDate() + 5);
             }
             else {
                 deliveryDate.setDate(deliveryDate.getDate() + 3);
             }
-            var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
             _this.estimatedDeliveryDate = days[deliveryDate.getDay()] + ', ' + deliveryDate.getFullYear() + '/' + deliveryDate.getMonth() + '/' + deliveryDate.getDate();
             _this.cartItemList = _this.order.cartItemList;
         });

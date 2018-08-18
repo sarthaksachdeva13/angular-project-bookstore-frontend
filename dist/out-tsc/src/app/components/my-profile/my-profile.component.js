@@ -60,7 +60,7 @@ var MyProfileComponent = (function () {
         }, function (error) {
             console.log(error.text());
             var errorMessage = error.text();
-            if (errorMessage === "Incorrect current password!")
+            if (errorMessage === 'Incorrect current password!')
                 _this.incorrectPassword = true;
         });
     };
@@ -163,7 +163,7 @@ var MyProfileComponent = (function () {
             _this.loggedIn = true;
         }, function (error) {
             _this.loggedIn = false;
-            console.log("inactive session");
+            console.log('inactive session');
             _this.router.navigate(['/myAccount']);
         });
         this.getCurrentUser();
@@ -175,13 +175,13 @@ var MyProfileComponent = (function () {
         for (var s in app_const_1.AppConst.usStates) {
             this.stateList.push(s);
         }
-        this.userBilling.userBillingState = "";
-        this.userPayment.type = "";
-        this.userPayment.expiryMonth = "";
-        this.userPayment.expiryYear = "";
+        this.userBilling.userBillingState = '';
+        this.userPayment.type = '';
+        this.userPayment.expiryMonth = '';
+        this.userPayment.expiryYear = '';
         this.userPayment.userBilling = this.userBilling;
         this.defaultPaymentSet = false;
-        this.userShipping.userShippingState = "";
+        this.userShipping.userShippingState = '';
         this.defaultShippingSet = false;
     };
     return MyProfileComponent;

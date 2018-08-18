@@ -72,7 +72,7 @@ var ShoppingCartComponent = (function () {
             for (var _i = 0, _a = this.cartItemList; _i < _a.length; _i++) {
                 var item = _a[_i];
                 if (item.qty > item.book.inStockNumber) {
-                    console.log("not enough stock on some item");
+                    console.log('not enough stock on some item');
                     this.notEnoughStock = true;
                     return;
                 }
