@@ -11,7 +11,7 @@ import {Http} from '@angular/http';
     styleUrls: ['./book-list-api.component.css']
 })
 export class BookListAPIComponent implements OnInit {
-    items: any[];
+    items: any;
 
 
     // @ts-ignore
