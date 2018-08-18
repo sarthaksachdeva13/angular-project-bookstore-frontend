@@ -11,12 +11,14 @@
         <li><a md-button routerLink="/bookList">Browse Books from DB</a></li>
         <form class="navbar-form">
           <div class="form-group">
-            <input type="text" name="searchByTitle"
+            <input
+                    type="text"
+                   name="searchByTitle"
                    [(ngModel)]="keyword" class="form-control"
-                   placeholder="Enter to search from API"/>
+                   placeholder="Search books from API"/>
           </div>
           <button type="submit"
-                  class="btn btn-default"
+                  class="btn btn-primary"
                   (click)="search(keyword)">Search
           </button>
         </form>
