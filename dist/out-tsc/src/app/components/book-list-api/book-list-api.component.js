@@ -19,7 +19,6 @@ var BookListAPIComponent = (function () {
         this.router = router;
         this.http = http;
         this.route = route;
-        // @ts-ignore
         this.results = [
             this.items
         ];
