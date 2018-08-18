@@ -3,11 +3,11 @@ const app = express();
 
 
 
-app.use(express.static('./dist/webdev-summer2-project-angular-storefront'));
+app.use(express.static('./dist/store-front'));
 
 app.get('/*', function(req,res) {
 
-    res.sendFile(path.join(__dirname,'/dist/webdev-summer2-project-angular-storefront/index.html'));
+    res.sendFile(path.join(__dirname,'/dist/store-front/index.html'));
 });
 
 app.listen(process.env.PORT || 8080);
