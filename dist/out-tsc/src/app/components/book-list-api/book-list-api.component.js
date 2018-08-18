@@ -19,9 +19,9 @@ var BookListAPIComponent = (function () {
         this.router = router;
         this.http = http;
         this.route = route;
-        this.results = [
-            this.items
-        ];
+        this.results = {
+            items: []
+        };
     }
     BookListAPIComponent.prototype.ngOnInit = function () {
         var _this = this;

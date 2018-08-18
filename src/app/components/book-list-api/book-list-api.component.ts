@@ -11,11 +11,9 @@ import {Http} from '@angular/http';
     styleUrls: ['./book-list-api.component.css']
 })
 export class BookListAPIComponent implements OnInit {
-    items;
-
-    results = [
-        this.items
-    ];
+    results = {
+        items: []
+    }
 
     constructor(
         private bookService: BookService,
