@@ -3,11 +3,13 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node server.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "postinstall": "ng build --aot --prod",
+    "heroku-postbuild": "ng build --prod"
   },
   "private": true,
   "dependencies": {
@@ -24,10 +26,12 @@
     "angular2-datatable": "^0.6.0",
     "bootstrap": "^3.3.7",
     "core-js": "^2.4.1",
+    "express.js": "^1.0.0",
     "font-awesome": "^4.7.0",
     "hammerjs": "^2.0.8",
     "lodash": "^4.17.4",
     "rxjs": "^5.1.0",
+    "typescript": "~2.3.3",
     "zone.js": "^0.8.4"
   },
   "devDependencies": {
@@ -49,5 +53,9 @@
     "ts-node": "~3.0.4",
     "tslint": "~5.4.3",
     "typescript": "~2.3.3"
+  },
+  "engines": {
+    "node": "8.11.1",
+    "npm": "6.0.1"
   }
 }
