@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-8">
+      <h2 style="font-family:helvetica;"><span>List of Books from Google API</span></h2>
+    </div>
+  </div>
+
+  <hr class="style18">
+
+  <ul class="list-group">
+    <li *ngFor="let book of results.items"
+        class="list-group-item">
+      <img src="{{book.volumeInfo.imageLinks.smallThumbnail}}"/>
+      <span>
+        {{book.volumeInfo.title}} //
+        <span id="authorName">Author: </span>{{book.volumeInfo.authors[0]}}
+      </span>
+    </li>
+  </ul>
+</div>
