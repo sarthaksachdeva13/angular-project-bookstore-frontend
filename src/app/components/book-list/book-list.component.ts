@@ -6,51 +6,52 @@ import {Http} from '@angular/http';
 import {AppConst} from '../../constants/app-const';
 
 @Component({
-  selector: 'app-book-list',
-  templateUrl: './book-list.component.html',
-  styleUrls: ['./book-list.component.css']
+    selector: 'app-book-list',
+    templateUrl: './book-list.component.html',
+    styleUrls: ['./book-list.component.css']
 })
 export class BookListComponent implements OnInit {
 
-   filterQuery = '';
-   rowsOnPage = 5;
+    filterQuery = '';
+    rowsOnPage = 5;
+    sortOrder;
+    sortBy;
+    selectedBook: Book;
+    bookList: Book[];
+    serverPath = AppConst.serverPath;
 
-   selectedBook: Book;
-   bookList: Book[];
-   serverPath = AppConst.serverPath;
+    constructor(
+        private bookService: BookService,
+        private router: Router,
+        private http: Http,
+        private route: ActivatedRoute
+    ) {
+    }
 
-  constructor(
-    private bookService: BookService,
-    private router: Router,
-    private http: Http,
-    private route: ActivatedRoute
-  ) {
-  }
+    onSelect(book: Book) {
+        this.selectedBook = book;
+        this.router.navigate(['/bookDetail', this.selectedBook.id]);
+    }
 
-  onSelect(book: Book) {
-    this.selectedBook = book;
-    this.router.navigate(['/bookDetail', this.selectedBook.id]);
-  }
+    ngOnInit() {
+        this.route.queryParams.subscribe(params => {
+            if (params['bookList']) {
+                console.log('filtered book list');
+                this.bookList = JSON.parse(params['bookList']);
+            } else {
+                this.bookService.getBookList().subscribe(
+                    res => {
+                        console.log(res.json());
+                        this.bookList = res.json();
+                    },
+                    err => {
+                        console.log(err);
+                    }
+                );
+            }
+        });
 
-  ngOnInit() {
-    this.route.queryParams.subscribe(params => {
-      if (params['bookList']) {
-        console.log('filtered book list');
-        this.bookList = JSON.parse(params['bookList']);
-      } else {
-        this.bookService.getBookList().subscribe(
-          res => {
-            console.log(res.json());
-            this.bookList = res.json();
-          },
-          err => {
-            console.log(err);
-          }
-        );
-      }
-    });
-
-  }
+    }
 }
 
 

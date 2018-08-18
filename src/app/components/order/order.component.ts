@@ -37,11 +37,13 @@ export class OrderComponent implements OnInit {
     userPaymentList: UserPayment[] = [];
     payment: Payment = new Payment();
     selectedTab: number;
-    emptyShippingList: boolean = true;
-    emptyPaymentList: boolean = true;
+    emptyShippingList = true;
+    emptyPaymentList = true;
     stateList: string[] = [];
     shippingMethod: string;
     order: Order = new Order();
+    missingRequiredField;
+
 
     constructor(
         private router: Router,
@@ -141,7 +143,7 @@ export class OrderComponent implements OnInit {
                 this.order = res.json();
                 console.log(this.order);
 
-                let navigationExtras: NavigationExtras = {
+                const navigationExtras: NavigationExtras = {
                     queryParams: {
                         'order': JSON.stringify(this.order)
                     }
@@ -176,7 +178,7 @@ export class OrderComponent implements OnInit {
                 if (this.userShippingList.length) {
                     this.emptyShippingList = false;
 
-                    for (let userShipping of this.userShippingList) {
+                    for (const userShipping of this.userShippingList) {
                         if (userShipping.userShippingDefault) {
                             this.setShippingAddress(userShipping);
                             return;
@@ -198,7 +200,7 @@ export class OrderComponent implements OnInit {
                 if (this.userPaymentList.length) {
                     this.emptyPaymentList = false;
 
-                    for (let userPayment of this.userPaymentList) {
+                    for (const userPayment of this.userPaymentList) {
                         if (userPayment.defaultPayment) {
                             this.setPaymentMethod(userPayment);
                             return;
@@ -211,7 +213,7 @@ export class OrderComponent implements OnInit {
             }
         );
 
-        for (let s in AppConst.usStates) {
+        for (const s in AppConst.usStates) {
             this.stateList.push(s);
         }
 
