@@ -1,0 +1,28 @@
+<div class="container-fluid">
+  <div *ngIf="bookLoaded">
+    <div class="leftColumn">
+      <div class="card">
+        <div class="card-body">
+          <img class="card-img float-right" src="{{book.items[0].volumeInfo.imageLinks.thumbnail}}"
+               alt="Matilda">
+          <h3 class="card-title" id="bookTitle">{{book.items[0].volumeInfo.title}}</h3>
+        </div>
+      </div>
+    </div>
+    <div class="rightColumn">
+      <h4><span class="headingColor">Author:</span> {{book.items[0].volumeInfo.authors}}</h4>
+      <h4><span class="headingColor">Publisher:</span>{{book.items[0].volumeInfo.publisher}}</h4>
+      <h4><span class="headingColor">Pages:</span> {{book.items[0].volumeInfo.pageCount}}</h4>
+      <div>
+        <h4 class="headingColor">Description: </h4>
+        <p class="card-text">
+          {{book.items[0].volumeInfo.description}}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid">
+  <p id="checkBookAvail">Like this book? Check out if it is available in our <a routerLink="/bookList">database</a>!</p>
+</div>
+

@@ -1,3 +1,14 @@
-#authorName{
-  color: darkred;
+#authorName {
+    margin-left: 10px;
+    color: darkred;
+}
+
+.list-group-item:hover {
+    cursor: pointer;
+}
+
+#titleSpan {
+    margin-left: 20px;
+    font-size: 22px;
+    font-family: Avenir, serif;
 }

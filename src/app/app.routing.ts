@@ -10,50 +10,21 @@ import {ShoppingCartComponent} from './components/shopping-cart/shopping-cart.co
 import {OrderComponent} from './components/order/order.component';
 import {OrderSummaryComponent} from './components/order-summary/order-summary.component';
 import {BookListAPIComponent} from './components/book-list-api/book-list-api.component';
+import {BookDescriptionApiComponent} from './components/book-description-api/book-description-api.component';
 
 
 const appRoutes: Routes = [
-  {
-    path: '',
-    redirectTo: '/home',
-    pathMatch: 'full'
-  },
-  {
-    path: 'home',
-    component: HomeComponent
-  },
-  {
-    path: 'myAccount',
-    component: MyAccountComponent
-  },
-  {
-    path: 'myProfile',
-    component: MyProfileComponent
-  },
-  {
-    path: 'bookList',
-    component: BookListComponent
-  },
-  {
-    path: 'bookDetail/:id',
-    component: BookDetailComponent
-  },
-  {
-    path: 'shoppingCart',
-    component: ShoppingCartComponent
-  },
-  {
-    path: 'checkout',
-    component: OrderComponent
-  },
-  {
-    path: 'orderSummary',
-    component: OrderSummaryComponent
-  },
-  {
-    path: 'search/:searchQ',
-    component: BookListAPIComponent
-  }
+    {path: '', redirectTo: '/home', pathMatch: 'full'},
+    {path: 'home', component: HomeComponent},
+    {path: 'myAccount', component: MyAccountComponent},
+    {path: 'myProfile', component: MyProfileComponent},
+    {path: 'bookList', component: BookListComponent},
+    {path: 'bookDetail/:id', component: BookDetailComponent},
+    {path: 'shoppingCart', component: ShoppingCartComponent},
+    {path: 'checkout', component: OrderComponent},
+    {path: 'orderSummary', component: OrderSummaryComponent},
+    {path: 'search/:searchQ', component: BookListAPIComponent},
+    {path: 'book/:bookId', component: BookDescriptionApiComponent}
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);

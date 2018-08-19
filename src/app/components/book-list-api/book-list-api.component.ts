@@ -23,6 +23,11 @@ export class BookListAPIComponent implements OnInit {
     ) {
     }
 
+    description = id => {
+        this.router.navigate(['book/' + id]);
+    }
+
+
     ngOnInit() {
         this.route.params.subscribe(params =>
             this.bookService.searchBookAPI(params['searchQ'])
